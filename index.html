@@ -81,8 +81,8 @@
                         <div class="card-header">
                             <h3>Рандомный факт о кошках</h3>
                             <div class="input-group mb-3">
-                                <button class="btn btn-light btn-outline-info" type="submit"
-                                    id="button-addon2">Post</button>
+                                <button class="btn btn-light btn-outline-info" type="submit" id="button-addon2">Get
+                                    Fact</button>
                             </div>
                         </div>
                         <div class="card-body text-white">
@@ -99,13 +99,12 @@
     </div>
 
     <script>
-        $.get('https://catfact.ninja/fact', function (data) {
-            console.log(data);
-            $('name-text').text(data.fact);
-        });
         $('#agebyName').submit(function (event) {
-            event.preventDefault;
-
+            event.preventDefault();
+            $.get('https://catfact.ninja/fact', function (data) {
+                console.log(data.fact);
+                $('#name-text').text(data.fact);
+            });
         });
 
         $('#numberGetForm').submit(function (event) {
